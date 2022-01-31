@@ -1,0 +1,52 @@
+version: '3.4'
+
+services:
+  cleanarchitecture:
+    image: ${DOCKER_REGISTRY-}clean-architecture
+    build:
+      context: .
+      dockerfile: src/WebAPI/Dockerfile
+    ports:
+      - "5001:5000"
+
+  postgres:
+    image: postgres
+    container_name: cleanarchitecture_db
+    restart: always
+    environment:
+      - TZ=Asia/Almaty
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=test
+      - PGDATA=/var/lib/postgresql/data/pgdata
+    volumes:
+      - /cleanarchitecture_db:/var/lib/postgresql/data
+    ports:
+      - "5440:5432"
+
+  redis:
+    image: redis:alpine
+    container_name: redis
+    restart: always
+    #volumes:
+    #  - ./redis/redis.conf:/usr/local/etc/redis/redis.conf
+    ports:
+      - "6379:6379"
+    command: redis-server --requirepass sOmE_sEcUrE_pAsS
+
+
+  minio-server:
+    image: minio/minio
+    container_name: minio-server
+    restart: always
+    volumes:
+      - /storage/minio:/data
+    ports:
+      - "9000:9000"
+      - "9009:9009"
+    environment:
+      MINIO_ACCESS_KEY: minio
+      MINIO_SECRET_KEY: minio_secret_key
+    command: server /data --console-address ":9009"
+
+

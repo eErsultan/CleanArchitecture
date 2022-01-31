@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WebAPI</name>
+    </assembly>
+    <members>
+        <member name="M:WebAPI.Controllers.AccountController.Login(Application.DTOs.Account.LoginRequest)">
+            <summary>
+            Авторизоваться
+            </summary>
+            <response code="200">Успешная операция</response>
+            <response code="403">Не верный логин или пароль</response>
+        </member>
+        <member name="M:WebAPI.Controllers.AccountController.Register(Application.DTOs.Account.RegisterRequest)">
+            <summary>
+            Регистрация
+            </summary>
+            <response code="200">Успешная операция</response>
+            <response code="403">Пароль должен состоять не менее чем из 8 символов</response>
+            <response code="409">Пользователь с таким логином уже существует</response>
+        </member>
+        <member name="M:WebAPI.Controllers.AccountController.RefreshToken(Application.DTOs.Account.RefreshTokenRequest)">
+            <summary>
+            Обновить токен
+            </summary>
+            <param name="request">token and refreshToken</param>
+            <response code="200">Успешная операция</response>
+            <response code="403">Неверный токен</response>
+        </member>
+        <member name="M:WebAPI.Controllers.AccountController.GetRoles">
+            <summary>
+            Получить роли
+            </summary>
+            <response code="200">Успешная операция</response>
+            <response code="404">Пользователь не найден</response>
+        </member>
+        <member name="M:WebAPI.Controllers.ArticlesController.GetAll(Application.Features.Articles.Queries.GetAll.GetAllArticlesQuery)">
+            <summary>
+            Получить все статьи
+            </summary>
+            <response code="200">Успешная операция</response>
+        </member>
+        <member name="M:WebAPI.Controllers.ArticlesController.GetById(System.Int32)">
+            <summary>
+            Получить по id статьи
+            </summary>
+            <response code="200">Успешная операция</response>
+            <response code="404">Статья не найдена</response>
+        </member>
+        <member name="M:WebAPI.Controllers.ArticlesController.Create(Application.Features.Articles.Commands.Create.CreateArticleCommand)">
+            <summary>
+            Создать статью
+            </summary>
+            <response code="200">Успешная операция</response>
+            <response code="400">Name является обязательным</response>
+        </member>
+        <member name="M:WebAPI.Controllers.ArticlesController.Delete(System.Int32)">
+            <summary>
+            Удалить статью
+            </summary>
+            <response code="200">Успешная операция</response>
+            <response code="404">Статья не найдена</response>
+        </member>
+        <member name="M:WebAPI.Controllers.ArticlesController.Update(System.Int32,Application.Features.Articles.Commands.Update.UpdateArticleCommand)">
+            <summary>
+            Редактировать статью
+            </summary>
+            <response code="200">Успешная операция</response>
+            <response code="404">Статья не найдена</response>
+        </member>
+    </members>
+</doc>

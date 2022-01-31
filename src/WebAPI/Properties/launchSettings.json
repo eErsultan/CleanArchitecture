@@ -1,0 +1,21 @@
+{
+  "WebAPI": {
+    "commandName": "Project",
+    "launchBrowser": true,
+    "launchUrl": "swagger",
+    "applicationUrl": "http://localhost:5000",
+    "environmentVariables": {
+      "ASPNETCORE_ENVIRONMENT": "Development"
+    }
+  },
+  "profiles": {
+    "WebAPI": {
+      "commandName": "Project"
+    },
+    "Docker": {
+      "commandName": "Docker",
+      "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}",
+      "publishAllPorts": true
+    }
+  }
+}

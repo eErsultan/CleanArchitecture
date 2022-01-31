@@ -1,0 +1,15 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "Yersultan Shynybekov",
+  "classifications": [ "Web", "WebAPI" ],
+  "identity": "Clean.Architecture.Project.Template",
+  "name": "Clean Architecture Project Template",
+  "description": "",
+  "shortName": "webapi-ca",
+  "sourceName": "CleanArchitecture",
+  "tags": {
+    "language": "C#",
+    "type": "project"
+  },
+  "preferNameDirectory": true
+}
