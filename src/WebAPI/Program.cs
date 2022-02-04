@@ -51,7 +51,7 @@ namespace WebAPI
                 .MinimumLevel.Override("Microsoft.EntityFrameworkCore", LogEventLevel.Fatal)
                 .Enrich.FromLogContext()
                 .WriteTo.Console()
-                .WriteTo.File("logs/log.txt", rollingInterval: RollingInterval.Day)
+                //.WriteTo.File("logs/log.txt", rollingInterval: RollingInterval.Day)
                 .Enrich.WithProperty("Environment", environment)
                 .CreateLogger();
         }

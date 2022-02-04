@@ -1,15 +1,7 @@
 version: '3.4'
 
 services:
-  cleanarchitecture:
-    image: ${DOCKER_REGISTRY-}clean-architecture
-    build:
-      context: .
-      dockerfile: src/WebAPI/Dockerfile
-    ports:
-      - "5001:5000"
-
-  postgres:
+  db:
     image: postgres
     container_name: cleanarchitecture_db
     restart: always
@@ -34,7 +26,6 @@ services:
       - "6379:6379"
     command: redis-server --requirepass sOmE_sEcUrE_pAsS
 
-
   minio-server:
     image: minio/minio
     container_name: minio-server
@@ -49,4 +40,11 @@ services:
       MINIO_SECRET_KEY: minio_secret_key
     command: server /data --console-address ":9009"
 
+  cleanarchitecture:
+    image: ${DOCKER_REGISTRY-}clean-architecture
+    build:
+      context: .
+      dockerfile: src/WebAPI/Dockerfile
+    ports:
+      - "5001:5000"
 
